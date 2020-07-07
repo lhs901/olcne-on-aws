@@ -19,7 +19,7 @@ data "template_file" "certificates" {
       controller0_dns = "{aws_instance.controller.0.private_dns}"
       controller1_dns = "{aws_instance.controller.1.private_dns}"
       controller2_dns = "{aws_instance.controller.2.private_dns}"
-      worker0_dns = "${aws_instance.worker.0.private_dns}"
+      worker0_dns = "{aws_instance.worker.0.private_dns}"
     }
 }
 resource "null_resource" "certificates" {
