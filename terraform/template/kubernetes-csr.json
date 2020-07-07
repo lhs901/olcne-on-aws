@@ -2,8 +2,6 @@
   "CN": "kubernetes",
   "hosts": [
     "worker0",
-    "worker1",
-    "worker2",
     "${kubernetes_cluster_dns}",
     "${controller0_ip}",
     "${controller1_ip}",

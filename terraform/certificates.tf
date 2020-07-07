@@ -11,15 +11,15 @@ data "template_file" "certificates" {
       kubernetes_cluster_dns = "${var.kubernetes_cluster_dns}"
 
       # Unfortunately, variables must be primitives, neither lists nor maps
-      controller0_ip = "${aws_instance.controller.0.private_ip}"
-      controller1_ip = "${aws_instance.controller.1.private_ip}"
-      controller2_ip = "${aws_instance.controller.2.private_ip}"
-      worker0_ip = "$try{aws_instance.worker.0.private_ip}"
+      controller0_ip = "{aws_instance.controller.0.private_ip}"
+      controller1_ip = "{aws_instance.controller.1.private_ip}"
+      controller2_ip = "{aws_instance.controller.2.private_ip}"
+      worker0_ip = "{aws_instance.worker.0.private_ip}"
 
-      controller0_dns = "${aws_instance.controller.0.private_dns}"
-      controller1_dns = "${aws_instance.controller.1.private_dns}"
-      controller2_dns = "${aws_instance.controller.2.private_dns}"
-      worker0_dns = "$try{aws_instance.worker.0.private_dns}"
+      controller0_dns = "{aws_instance.controller.0.private_dns}"
+      controller1_dns = "{aws_instance.controller.1.private_dns}"
+      controller2_dns = "{aws_instance.controller.2.private_dns}"
+      worker0_dns = "${aws_instance.worker.0.private_dns}"
     }
 }
 resource "null_resource" "certificates" {

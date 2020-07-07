@@ -9,10 +9,10 @@ data "template_file" "ssh_cfg" {
     vars = {
       user = "${var.default_instance_user}"
 
-      controller0_ip = "${aws_instance.controller.0.public_ip}"
-      controller1_ip = "${aws_instance.controller.1.public_ip}"
-      controller2_ip = "${aws_instance.controller.2.public_ip}"
-      worker0_ip = "$try{aws_instance.worker.0.public_ip}"
+      controller0_ip = "{aws_instance.controller.0.public_ip}"
+      controller1_ip = "{aws_instance.controller.1.public_ip}"
+      controller2_ip = "{aws_instance.controller.2.public_ip}"
+      worker0_ip = "{aws_instance.worker.0.public_ip}"
     }
 }
 resource "null_resource" "ssh_cfg" {
